@@ -54,13 +54,14 @@ export class AppService {
     return fetch(URI)
       .then(response => response.json())
       .then(json => {
-        Array.from(json).map((e:any)=>{
+        const tbd = Array.from(json).map((e:any)=>{
           const rendered = e?.content?.rendered || "";
           const parsed = parseString(rendered);
           const res = handleCountMap(parsed);
           console.log(res);
+          return res;
         })
-        return {message:JSON.stringify(json)};
+        return {data:tbd};
       })
     .catch((e)=>{return{message:"Failed",e}});
     //return { message: 'Welcome to server!' };
