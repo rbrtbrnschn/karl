@@ -8,7 +8,7 @@ export function common(): string {
  * @param {string} encodedString - any string
  * @returns {string} - returns *encodedString* stripped of HTMLEntities
  */
-export function stripHTMLEntities(encodedString: string) {
+export function stripHTMLEntities(encodedString: string): string {
   const translate_re = /&(nbsp|amp|quot|lt|gt);/g
   const translate = {
     nbsp: ' ',
@@ -29,7 +29,10 @@ export function stripHTMLEntities(encodedString: string) {
  * @param {seperator} string - " " by default, used to determine how to split the string
  * @returns {Record<string,number>} - Hashmap (word, repeatedAmount).
  */
-export function stringToCountMap(string: string, seperator: string = ' ') {
+export function stringToCountMap(
+  string: string,
+  seperator: string = ' '
+): Record<string, number> {
   return string
     .split(seperator)
     .filter((e) => e !== '')
@@ -50,7 +53,7 @@ export function parseString(
   string: string,
   reg: RegExp = /(<([^>]+)>)/gi,
   extraRegex: RegExp = /[.,;:!?()[\]{}"“\\$”/*&\-\–\s]/g
-) {
+): string {
   //@TODO find {RegExp} for {extraRegex} to disallow matching urls.
   const strippedTags = string.replace(reg, '')
   const strippedHTMLEntities = stripHTMLEntities(strippedTags)
