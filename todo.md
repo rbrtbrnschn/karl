@@ -3,7 +3,7 @@
 - setup socket connection on frontend V
 - refactor server logic
   - move to lib V
-  - create service which handles current main.ts handler
+  - create service which handles current main.ts handler V
 - send data every 10 seconds
 - propagate server spec suite 
 - finish readme
