@@ -1,6 +1,6 @@
 # Todo
-- install socket.io
-- setup socket connection on frontend
+- install socket.io V
+- setup socket connection on frontend V
 - send data every 10 seconds
 - refactor server logic
 - propagate server spec suite 
