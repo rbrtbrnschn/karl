@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { CountmapService } from './countmap/countmap.service';
 import { EventsGateway } from './events.gateway';
 
 describe('EventsGateway', () => {
@@ -6,7 +7,7 @@ describe('EventsGateway', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [EventsGateway],
+      providers: [EventsGateway, CountmapService],
     }).compile();
 
     gateway = module.get<EventsGateway>(EventsGateway);
