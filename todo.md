@@ -4,7 +4,7 @@
 - refactor server logic
   - move to lib V
   - create service which handles current main.ts handler V
-- send data every 10 seconds
+- send data every 10 seconds V
 - propagate server spec suite 
 - finish readme
 

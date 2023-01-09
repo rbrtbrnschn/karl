@@ -33,20 +33,14 @@ export function App() {
     socket.on("disconnect",()=>{
       setIsConnected(false);
     })
-    if(!isConnected) socket.emit("events",(res:any)=>console.log(res));
 
+    //@TODO fix typing
+    //@ts-ignore
+    socket.on("init",(e)=>{
+      setState(e);
+      console.log("basic emit",e);
+    })
 
-
-    /*
-    fetch('/api')
-      .then((res) => res.json())
-      .then((_data) => {
-        console.log(_data);
-        const { data} = _data;
-        setState(data);
-      })
-      .catch((e) => console.log({ e }))
-      */
   }, [])
   return (
     <>
