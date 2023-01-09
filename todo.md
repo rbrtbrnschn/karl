@@ -9,7 +9,7 @@
   - lib V
   - server services V
 - setup docker
-- setup swagger
+- setup swagger V
 - setup github pages/demo
 - finish readme
 - fix last countmap test
