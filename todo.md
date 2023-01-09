@@ -6,6 +6,9 @@
   - create service which handles current main.ts handler V
 - send data every 10 seconds V
 - propagate server spec suite 
+  - lib V
+  - server services
+  - frontend
 - finish readme
 
 ## ICE BOX
