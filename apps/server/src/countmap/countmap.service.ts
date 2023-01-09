@@ -21,11 +21,13 @@ export class CountmapService {
           const rendered = e?.content?.rendered || ''
           const parsed = parseString(rendered)
           const res = stringToCountMap(parsed)
+          // console.log(res);
           return res
         })
       })
       .catch((e) => {
-        throw Error(e);
+        console.log("DID THROW,",e);
+        throw new Error(e);
       })
   }
 }
