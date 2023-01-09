@@ -19,24 +19,26 @@ export class EventsGateway
   //@TODO find type
   private connections: any[] = []
 
+  async handleEmit(url: string) {
+    const data = await this.countmapService.createFromUrl(url)
+
+    this.server.emit('init', data)
+    Logger.log('Broadcasted data.')
+    return data;
+  }
+
   afterInit(server: any) {
-    setInterval(async () => {
-      const IS_TESTING = true
+    const IS_TESTING = true
 
-      const base = 'https://www.internate.org/'
-      const testBases = [
-        'https://animallogic.com',
-        'https://www.angrybirds.com',
-      ]
-      const testBase = testBases[1]
+    const base = 'https://www.internate.org/'
+    const testBases = ['https://animallogic.com', 'https://www.angrybirds.com']
+    const testBase = testBases[1]
 
-      const suffix = '/wp-json/wp/v2/posts'
-      const URI = `${IS_TESTING ? testBase : base}${suffix}`
+    const suffix = '/wp-json/wp/v2/posts'
+    const URI = `${IS_TESTING ? testBase : base}${suffix}`
 
-      const data = await this.countmapService.createFromUrl(URI)
-
-      this.server.emit('init', data)
-      Logger.log("Broadcasting data.")
+    setInterval(() => {
+      this.handleEmit(URI)
     }, 10000)
   }
 

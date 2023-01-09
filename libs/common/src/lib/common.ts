@@ -4,11 +4,12 @@ export function common(): string {
 
 /**
  * Credit to https://stackoverflow.com/questions/44195322/a-plain-javascript-way-to-decode-html-entities-works-on-both-browsers-and-node
- * Returns mutated string, stripping any HTMLEntities ie. '&12313;'.
+ * Returns mutated string, translating given HTMLEntities ie. '&nbsp;' to ' '.
  * @param {string} encodedString - any string
- * @returns {string} - returns *encodedString* stripped of HTMLEntities
+ * @returns {string} - returns translated *encodedString*, ie. '&amp;' becoming '&'
  */
 export function stripHTMLEntities(encodedString: string): string {
+  //@TODO rename to translateHTMLEntities
   const translate_re = /&(nbsp|amp|quot|lt|gt);/g
   const translate = {
     nbsp: ' ',
