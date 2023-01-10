@@ -1,5 +1,5 @@
 import { parseString, stringToCountMap } from '@karl/common'
-import { Injectable } from '@nestjs/common'
+import { Injectable, Logger } from '@nestjs/common'
 import fetch from 'node-fetch'
 import type { IGatewayResponse } from "@karl/common";
 @Injectable()
@@ -21,6 +21,7 @@ export class CountmapService {
           const rendered = e?.content?.rendered || ''
           const parsed = parseString(rendered)
           const countmap = stringToCountMap(parsed)
+          Logger.log(e);
           return {...e, countmap } 
         })
       })
