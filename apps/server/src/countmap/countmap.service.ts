@@ -1,7 +1,7 @@
 import { parseString, stringToCountMap } from '@karl/common'
-import { Injectable } from '@nestjs/common'
+import { Injectable, Logger } from '@nestjs/common'
 import fetch from 'node-fetch'
-
+import type { IGatewayResponse } from "@karl/common";
 @Injectable()
 export class CountmapService {
 
@@ -12,7 +12,7 @@ export class CountmapService {
   async createFromUrl(
     url: string,
     options: Record<any, any> = {}
-  ): Promise<Record<string, number>[]> {
+  ): Promise<IGatewayResponse[]> {
     //@TODO error handle non valid urls
     return fetch(url, options)
       .then((res) => res.json())
@@ -20,9 +20,9 @@ export class CountmapService {
         return Array.from(data).map((e: any) => {
           const rendered = e?.content?.rendered || ''
           const parsed = parseString(rendered)
-          const res = stringToCountMap(parsed)
-          // console.log(res);
-          return res
+          const countmap = stringToCountMap(parsed)
+          Logger.log(e);
+          return {...e, countmap } 
         })
       })
       .catch((e) => {
