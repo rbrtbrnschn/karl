@@ -8,15 +8,18 @@
 - propagate server spec suite V
   - lib V
   - server services V
+- slim down redundant api endpoints
 - setup docker
 - setup swagger V
 - setup github pages/demo
 - finish readme
 - fix last countmap test
+- frontend lazy load on enormous state
 
 ## ICE BOX
 - spice up frontend
   - add in tailwind
-  - add in admin panel to change URIs
+  - make dashboard pretty
+  - allow to change URIs via API
 - try using the original Url again
 
