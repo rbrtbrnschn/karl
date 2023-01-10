@@ -10,6 +10,7 @@
   - server services V
 - slim down redundant api endpoints
 - setup docker
+  - rebind ports to ENV variables
 - setup swagger V
 - setup github pages/demo
 - finish readme
