@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import styles from './app.module.scss'
 import { io, Socket } from 'socket.io-client'
+import type {IGatewayResponse} from "@karl/common";
 
 interface ServerToClientEvents {
   noArg: () => void
@@ -23,7 +24,7 @@ interface SocketData {
 }
 
 export function App() {
-  const [state, setState] = useState([])
+  const [state, setState] = useState<IGatewayResponse[]>([])
   const [isConnected, setIsConnected] = useState(false)
   useEffect(() => {
     const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(
@@ -61,7 +62,7 @@ export function App() {
             </thead>
             <tbody>
               {state.map((entry, index) => {
-                const List = Object.entries(entry).map(
+                const List = Object.entries(entry.countmap).map(
                   ([word, amount]: any) => {
                     return (
                       <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
@@ -84,7 +85,7 @@ export function App() {
                 return (
                   <>
                     {List}
-                    <hr />
+                    <tr className='my-2' >a</tr>
                   </>
                 )
               })}

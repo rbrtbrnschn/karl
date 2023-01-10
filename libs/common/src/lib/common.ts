@@ -1,3 +1,5 @@
+import { CountMap } from "./common.interface"
+
 export function common(): string {
   return 'common'
 }
@@ -18,9 +20,10 @@ export function stripHTMLEntities(encodedString: string): string {
     lt: '<',
     gt: '>',
   }
+  type TranslateKey = keyof typeof translate;
 
   return encodedString
-    .replace(translate_re, (_, entity) => translate[entity])
+    .replace(translate_re, (_, entity) => translate[entity as TranslateKey])
     .replace(/&#(\d+);/gi, () => '')
 }
 
@@ -33,14 +36,14 @@ export function stripHTMLEntities(encodedString: string): string {
 export function stringToCountMap(
   string: string,
   seperator: string = ' '
-): Record<string, number> {
+): CountMap {
   return string
     .split(seperator)
     .filter((e) => e !== '')
     .reduce((acc, curr) => {
       acc[curr] = (acc[curr] || 0) + 1
       return acc
-    }, {})
+    }, {} as CountMap)
 }
 
 /**
