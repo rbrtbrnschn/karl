@@ -9,14 +9,13 @@
   - lib V
   - server services V
 - slim down redundant api endpoints
-- setup docker
   - rebind ports to ENV variables V
   - standard: 4200 client
               3333 server
               8001 ws
 - setup swagger V
 - setup github pages/demo
-- finish readme
+- finish readme V
 - fix last countmap test
 - frontend lazy load on enormous state
 - toasts for new data
@@ -30,3 +29,10 @@
   - sidebar showcasing post length / anchor points
 - try using the original Url again
 
+- TODO:
+- setup docker
+- fix frontend tests
+- showcase loading in frontend or hero
+- showcase disclaimer saying couldnt use original url
+- refactor frontend components
+- setup github pages 
