@@ -46,14 +46,15 @@ describe('CountmapService', () => {
     expect(service).toBeDefined()
   })
 
-  it('should be equal', async () => {
+  it('should include countmap property', async () => {
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => Promise.resolve(MOCK_RESPONSE),
       })
     ) as any
     const returnValue = await service.createFromUrl(URL)
-    expect(returnValue).toEqual(MOCK_COUNTMAPS)
+    const filteredResponse = returnValue.map((e)=>e.countmap);
+    expect(filteredResponse).toEqual(MOCK_COUNTMAPS)
   })
 
   it('should throw error', async () => {

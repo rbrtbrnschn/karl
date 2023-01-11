@@ -30,23 +30,25 @@ describe('EventsGateway', () => {
         },
       },
     ]
-    const MOCK_COUNTMAPS = [{
-      welcome: 1,
-      to: 1,
-      wordpress: 1,
-      this: 1,
-      is: 1,
-      your: 1,
-      first: 1,
-      post: 1,
-      edit: 1,
-      or: 1,
-      delete: 1,
-      it: 1,
-      then: 1,
-      start: 1,
-      writing: 1,
-    }]
+    const MOCK_COUNTMAPS = [
+      {
+        welcome: 1,
+        to: 1,
+        wordpress: 1,
+        this: 1,
+        is: 1,
+        your: 1,
+        first: 1,
+        post: 1,
+        edit: 1,
+        or: 1,
+        delete: 1,
+        it: 1,
+        then: 1,
+        start: 1,
+        writing: 1,
+      },
+    ]
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => Promise.resolve(MOCK_RESPONSE),
@@ -55,6 +57,7 @@ describe('EventsGateway', () => {
     const returnValue = await gateway.handleEmit(
       'https://www.angrybirds.com/wp-json/wp/v2/posts'
     )
-    expect(returnValue).toEqual(MOCK_COUNTMAPS)
+    const filteredResponse = returnValue.map((e) => e.countmap)
+    expect(filteredResponse).toEqual(MOCK_COUNTMAPS)
   })
 })
