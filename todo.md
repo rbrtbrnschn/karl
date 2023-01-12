@@ -15,7 +15,7 @@
               8001 ws
 - setup swagger V
 - finish readme V
-- fix last countmap test
+- fix last countmap test V
 
 ## ICE BOX
 - spice up frontend

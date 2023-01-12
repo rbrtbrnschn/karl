@@ -1,25 +1,25 @@
-import { Test, TestingModule } from '@nestjs/testing'
-import { CountmapService } from './countmap/countmap.service'
-import { EventsGateway } from './events.gateway'
-import fetch from 'node-fetch'
+import { Test, TestingModule } from '@nestjs/testing';
+import { CountmapService } from './countmap/countmap.service';
+import { EventsGateway } from './events.gateway';
+import fetch from 'node-fetch';
 
 describe('EventsGateway', () => {
-  let gateway: EventsGateway
+  let gateway: EventsGateway;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [EventsGateway, CountmapService],
-    }).compile()
+    }).compile();
 
-    gateway = module.get<EventsGateway>(EventsGateway)
-    gateway.server = { emit: jest.fn(() => null) }
-  })
+    gateway = module.get<EventsGateway>(EventsGateway);
+    gateway.server = { emit: jest.fn(() => null) };
+  });
 
   it('should be defined', () => {
-    expect(gateway).toBeDefined()
-  })
+    expect(gateway).toBeDefined();
+  });
 
-  it('dunno', async () => {
+  it('#handleEmit should return proper countmap', async () => {
     const MOCK_RESPONSE = [
       {
         id: 1,
@@ -29,7 +29,7 @@ describe('EventsGateway', () => {
             '<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n',
         },
       },
-    ]
+    ];
     const MOCK_COUNTMAPS = [
       {
         welcome: 1,
@@ -48,16 +48,16 @@ describe('EventsGateway', () => {
         start: 1,
         writing: 1,
       },
-    ]
+    ];
     global.fetch = jest.fn(() =>
       Promise.resolve({
         json: () => Promise.resolve(MOCK_RESPONSE),
       })
-    ) as any
+    ) as any;
     const returnValue = await gateway.handleEmit(
       'https://www.angrybirds.com/wp-json/wp/v2/posts'
-    )
-    const filteredResponse = returnValue.map((e) => e.countmap)
-    expect(filteredResponse).toEqual(MOCK_COUNTMAPS)
-  })
-})
+    );
+    const filteredResponse = returnValue.map((e) => e.countmap);
+    expect(filteredResponse).toEqual(MOCK_COUNTMAPS);
+  });
+});
