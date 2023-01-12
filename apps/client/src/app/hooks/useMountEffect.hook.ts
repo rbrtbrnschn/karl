@@ -1,3 +1,9 @@
 import { useEffect } from 'react';
 
-export const useMountEffect = (fn: () => void) => useEffect(fn, []);
+/**
+ * Semantically clean way of running a useEffect with empty arguments.
+ * @param {()=>void} fn - callback to run on 'mount'
+ */
+export const useMountEffect = (fn: () => void) => {
+  useEffect(fn, []);
+};
