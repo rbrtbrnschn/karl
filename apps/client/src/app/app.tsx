@@ -13,12 +13,16 @@ import {
   ServerToClientEvents,
 } from './interfaces/ws.interface';
 import { Table } from './components/table';
+import { usePrevious } from './hooks/usePrevious.hook';
 
 export function App() {
   const [state, setState] = useState<IGatewayResponse[]>([]);
   const [isConnected, setIsConnected] = useState(false);
+  const prevState = usePrevious(state);
 
-  useEffect(() => {
+  useMountEffect(() => {
+    toast.info('Refreshes in 10 seconds...');
+
     const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(
       `http://localhost:${process.env.WS_PORT || 8001}`
     );
@@ -33,11 +37,13 @@ export function App() {
       setState(e);
       toast.dismiss();
     });
-  }, []);
-
-  useMountEffect(() => {
-    toast.info('Loading data...');
   });
+
+  useEffect(() => {
+    const isEqual = state.length === prevState?.length;
+    const isDefined = !!prevState;
+    if (!isEqual && isDefined) toast.success('New data loaded successfully.');
+  }, [state]);
 
   return (
     <>

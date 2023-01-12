@@ -33,7 +33,8 @@
 - refactor frontend components V
 - remove vercel  from github repo V
 - fix app ws typing V
-- add preview thumbnail 
+- toasts for new data V
 
+
+- add preview thumbnail 
 - frontend lazy load on enormous state
-- toasts for new data
