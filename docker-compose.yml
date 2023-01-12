@@ -8,7 +8,6 @@ services:
       service: nx-app-base
     command: serve client 
     ports:
-      - 4201:4200
       - 3000:3000
     working_dir: /app/dist/apps
 
@@ -19,9 +18,11 @@ services:
       service: nx-app-base
     command: node main.js
     ports:
-      - 4202:3333
-      - 8001:8001
+      - ${PORT}:3333
+      - ${WS_PORT}:8001
     working_dir: /app/dist/apps/server
+    env_file:
+      - .env
 
 volumes:
   mono-node-modules: null

@@ -29,7 +29,7 @@ export function App() {
   const [isConnected, setIsConnected] = useState(false)
   useEffect(() => {
     const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(
-      `http://localhost:${process.env.WS_PORT ?? 8001}`
+      `http://localhost:${process.env.WS_PORT || 8001}`
     )
     socket.on('connect', () => {
       setIsConnected(true)

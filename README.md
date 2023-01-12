@@ -37,7 +37,8 @@ Erstelle ein Full Stack System Frontend / Backend mit folgender Aufgabestellung:
 To build and serve the applications, you need to have [node.js](https://nodejs.org/en/) installed. 
 In addition `npx` is needed to build the applications with ease. To install, run `npm i -g npx`.
 
-If a docker-compose has been setup, you can alternatively serve the built applications via [docker](https://www.docker.com/).
+To serve the applications via [docker](https://www.docker.com/) and `docker-compose`,
+run `docker-compose --env-file ./.env up` in the root directory.
 
 Once you cloned this repository locally:
 1. go into the working directory
@@ -47,7 +48,7 @@ Once you cloned this repository locally:
 
 ## Setup
 
-Create a .env file in the root directory.
+Create a .env file in the root directory **if it does not exist**. This may have been provided for showcasing the application.
 
 Following this SAMPLE:
 ```.env
@@ -55,7 +56,11 @@ PORT=3333
 WS_PORT=8001
 ```
 
-`PORT` being the backend port and `WS_PORT` being the port for the websocket gateway.
+`PORT` being the backend port and `WS_PORT` being the websocket gateway. 
+
+**ATTENTION: DO NOT CHANGE THE WS_PORT**.
+
+> If you do, the client will not be able to connect properly to the websocket gateway.
 
 ## Usage 
 
