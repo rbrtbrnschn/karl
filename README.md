@@ -16,6 +16,10 @@ Countmap in JSON available under http://localhost:3333/api/countmap. (Port may c
 
 Swagger API Docs available under http://localhost:3333/docs ( Placeholder ).
 
+### Disclaimer:
+
+> I could not get the original WP url to work. I've in turn used any other WP site. For this case I used: `https://animallogic.com/`.
+
 ### Task:
 
 Erstelle ein Full Stack System Frontend / Backend mit folgender Aufgabestellung:
