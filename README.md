@@ -1,6 +1,13 @@
 # The Karl Project
+![alt text](/assets/demo.png)
 
 ## Description 
+
+Frontend Client available under http://localhost:3000/ 
+
+Countmap in JSON available under http://localhost:3333/api/countmap. (Port may change according to your .env)
+
+Swagger API Docs available under http://localhost:3333/docs ( Placeholder ).
 
 ### Task:
 
@@ -20,7 +27,7 @@ Erstelle ein Full Stack System Frontend / Backend mit folgender Aufgabestellung:
 - Frontend in Javascript / Typescript React oder Angular
 - Datenspeicherung gerne in-memory
 
-### What we wanna see:
+### What we want to see:
 - high code quality
 - test coverage
 - Production-ready code
@@ -34,11 +41,12 @@ Erstelle ein Full Stack System Frontend / Backend mit folgender Aufgabestellung:
 
 ## Installation
 
-To build and serve the applications, you need to have [node.js](https://nodejs.org/en/) installed. 
-In addition `npx` is needed to build the applications with ease. To install, run `npm i -g npx`.
-
 To serve the applications via [docker](https://www.docker.com/) and `docker-compose`,
-run `docker-compose --env-file ./.env up` in the root directory.
+run `docker-compose up` in the root directory.
+
+> You may skip the [setup](#setup) and [usage](#usage) in this case.
+
+To build and serve the applications locally, you need to have [node.js](https://nodejs.org/en/) installed. 
 
 Once you cloned this repository locally:
 1. go into the working directory
