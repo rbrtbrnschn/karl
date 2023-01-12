@@ -29,6 +29,7 @@ Erstelle ein Full Stack System Frontend / Backend mit folgender Aufgabestellung:
 ## Table of Contents
 
 * [Installation](#installation)
+* [Setup](#setup)
 * [Usage](#usage)
 
 ## Installation
@@ -43,6 +44,18 @@ Once you cloned this repository locally:
 2. run `npm install`
 3. run `npx build server`
 4. run `npx build client`
+
+## Setup
+
+Create a .env file in the root directory.
+
+Following this SAMPLE:
+```.env
+PORT=3333
+WS_PORT=8001
+```
+
+`PORT` being the backend port and `WS_PORT` being the port for the websocket gateway.
 
 ## Usage 
 

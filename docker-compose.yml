@@ -9,6 +9,7 @@ services:
     command: serve client 
     ports:
       - 4201:4200
+      - 3000:3000
     working_dir: /app/dist/apps
 
   # Server
@@ -16,7 +17,7 @@ services:
     extends:
       file: docker-compose.base.yml
       service: nx-app-base
-    command: nodemon main.js
+    command: node main.js
     ports:
       - 4202:3333
       - 8001:8001
