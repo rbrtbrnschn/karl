@@ -51,8 +51,8 @@ export function stringToCountMap(string: string, seperator = ' '): CountMap {
  */
 export function parseString(
   string: string,
-  reg: RegExp = /(<([^>]+)>)/gi,
-  extraRegex: RegExp = /[.,;:!?()[\]{}"“\\$”/*&\-\–\s]/g
+  reg = /(<([^>]+)>)/gi,
+  extraRegex = /[.,;:!?()[\]{}"“\\$”/*&\-–\s]/g
 ): string {
   //@ICEBOX find {RegExp} for {extraRegex} to disallow matching urls.
   const strippedTags = string.replace(reg, '');

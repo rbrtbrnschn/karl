@@ -41,7 +41,7 @@ export class EventsGateway
     }, 10000);
   }
 
-  handleConnection(client: any, ...args: any[]) {
+  handleConnection(client: any) {
     this.connections.push(client);
   }
   handleDisconnect(client: any) {
@@ -52,8 +52,8 @@ export class EventsGateway
     this.connections.splice(connectionIndex, 1);
   }
 
-  @SubscribeMessage('set-url')
-  handleSetUrl(client: any, payload: any) {
-    //@ICEBOX Admin panel - changes url, which is fetched and sent out periodically.
-  }
+  //@ICEBOX Admin panel - changes url, which is fetched and sent out periodically.
+  // @SubscribeMessage('set-url')
+  // handleSetUrl(client: any, payload: any) {
+  // }
 }

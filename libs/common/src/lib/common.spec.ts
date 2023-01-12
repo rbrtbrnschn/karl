@@ -52,7 +52,7 @@ describe('parseString', () => {
   });
   it('[CUSTOM REGEX] - should leave quotes untouched', () => {
     expect(
-      parseString(sentenceOne, /(<([^>]+)>)/gi, /[.,;:!?()[\]{}\\$/*&\-\–\s]/g)
+      parseString(sentenceOne, /(<([^>]+)>)/gi, /[.,;:!?()[\]{}\\$/*&\-–\s]/g)
     ).toEqual('html 5 "boilerplate"');
   });
 });

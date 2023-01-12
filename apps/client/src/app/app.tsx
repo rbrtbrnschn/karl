@@ -1,11 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useEffect, useRef, useState } from 'react';
-import styles from './app.module.scss';
 import { io, Socket } from 'socket.io-client';
-import { IGatewayResponse, parseString } from '@karl/common';
+import { IGatewayResponse } from '@karl/common';
 import { Card } from './components/card';
 import { Alert } from './components/alert';
-import { ToastContainer, toast, Id } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useMountEffect } from './hooks/useMountEffect.hook';
 import {

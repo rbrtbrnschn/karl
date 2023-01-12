@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CountmapService } from './countmap/countmap.service';
 import { EventsGateway } from './events.gateway';
-import fetch from 'node-fetch';
 
 describe('EventsGateway', () => {
   let gateway: EventsGateway;
