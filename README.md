@@ -1,5 +1,12 @@
 # The Karl Project
-![alt text](/assets/demo.png)
+
+
+<a href="http://localhost:3000"> ![react.js](https://img.shields.io/badge/react-js-blue?style=for-the-badge) </a>
+![docker](https://img.shields.io/badge/-docker-informational?style=for-the-badge)
+<a href="http://localhost:3333/docs"> ![API Docs](https://img.shields.io/badge/API_Docs-informational?style=for-the-badge)  </a>
+<a href="http://localhost:3333/docs"> ![nest.js](https://img.shields.io/badge/-nestjs-grey?style=for-the-badge)</a>
+
+![demo.png](/assets/demo.png)
 
 ## Description 
 
