@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  # Client
+  app-1:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: echo 'app-1' > file.md
+    ports:
+      - 4201:4200
+    working_dir: /app/dist/apps
+
+  # Server
+  app-2:
+    extends:
+      file: docker-compose.base.yml
+      service: nx-app-base
+    command: echo 'app-2' > file.md
+    ports:
+      - 4202:3333
+      - 8001:8001
+    working_dir: /app/dist/apps/server
+
+volumes:
+  mono-node-modules: null
