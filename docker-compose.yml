@@ -6,7 +6,7 @@ services:
     extends:
       file: docker-compose.base.yml
       service: nx-app-base
-    command: echo 'app-1' > file.md
+    command: serve client 
     ports:
       - 4201:4200
     working_dir: /app/dist/apps
@@ -16,7 +16,7 @@ services:
     extends:
       file: docker-compose.base.yml
       service: nx-app-base
-    command: echo 'app-2' > file.md
+    command: nodemon main.js
     ports:
       - 4202:3333
       - 8001:8001
