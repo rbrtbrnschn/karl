@@ -30,8 +30,9 @@
 - fix frontend tests V
 - showcase disclaimer saying couldnt use original url V
 - showcase loading in frontend or hero V
-- refactor frontend components
-- remove vercel  from github repo 
+- refactor frontend components V
+- remove vercel  from github repo V
+- fix app ws typing V
 - add preview thumbnail 
 
 - frontend lazy load on enormous state
