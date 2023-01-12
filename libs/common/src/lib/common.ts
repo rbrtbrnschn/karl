@@ -1,7 +1,7 @@
-import { CountMap } from "./common.interface"
+import { CountMap } from './common.interface';
 
 export function common(): string {
-  return 'common'
+  return 'common';
 }
 
 /**
@@ -10,21 +10,20 @@ export function common(): string {
  * @param {string} encodedString - any string
  * @returns {string} - returns translated *encodedString*, ie. '&amp;' becoming '&'
  */
-export function stripHTMLEntities(encodedString: string): string {
-  //@TODO rename to translateHTMLEntities
-  const translate_re = /&(nbsp|amp|quot|lt|gt);/g
+export function translateHTMLEntities(encodedString: string): string {
+  const translate_re = /&(nbsp|amp|quot|lt|gt);/g;
   const translate = {
     nbsp: ' ',
     amp: '&',
     quot: '"',
     lt: '<',
     gt: '>',
-  }
+  };
   type TranslateKey = keyof typeof translate;
 
   return encodedString
     .replace(translate_re, (_, entity) => translate[entity as TranslateKey])
-    .replace(/&#(\d+);/gi, () => '')
+    .replace(/&#(\d+);/gi, () => '');
 }
 
 /**
@@ -33,17 +32,14 @@ export function stripHTMLEntities(encodedString: string): string {
  * @param {seperator} string - " " by default, used to determine how to split the string
  * @returns {Record<string,number>} - Hashmap (word, repeatedAmount).
  */
-export function stringToCountMap(
-  string: string,
-  seperator: string = ' '
-): CountMap {
+export function stringToCountMap(string: string, seperator = ' '): CountMap {
   return string
     .split(seperator)
     .filter((e) => e !== '')
     .reduce((acc, curr) => {
-      acc[curr] = (acc[curr] || 0) + 1
-      return acc
-    }, {} as CountMap)
+      acc[curr] = (acc[curr] || 0) + 1;
+      return acc;
+    }, {} as CountMap);
 }
 
 /**
@@ -58,13 +54,13 @@ export function parseString(
   reg: RegExp = /(<([^>]+)>)/gi,
   extraRegex: RegExp = /[.,;:!?()[\]{}"“\\$”/*&\-\–\s]/g
 ): string {
-  //@TODO find {RegExp} for {extraRegex} to disallow matching urls.
-  const strippedTags = string.replace(reg, '')
-  const strippedHTMLEntities = stripHTMLEntities(strippedTags)
+  //@ICEBOX find {RegExp} for {extraRegex} to disallow matching urls.
+  const strippedTags = string.replace(reg, '');
+  const strippedHTMLEntities = translateHTMLEntities(strippedTags);
   const strippedCharacters = strippedHTMLEntities.replace(extraRegex, () => {
-    return ' '
-  })
-  const strippedLowered = strippedCharacters.toLowerCase()
+    return ' ';
+  });
+  const strippedLowered = strippedCharacters.toLowerCase();
 
-  return strippedLowered
+  return strippedLowered;
 }

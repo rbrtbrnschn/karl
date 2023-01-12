@@ -15,24 +15,24 @@
               8001 ws
 - setup swagger V
 - finish readme V
-- fix last countmap test
+- fix last countmap test V
+- fix @TODOS V
+- setup docker V
+- fix frontend tests V
+- showcase disclaimer saying couldnt use original url V
+- showcase loading in frontend or hero V
+- refactor frontend components V
+- remove vercel  from github repo V
+- fix app ws typing V
+- toasts for new data V
+- add preview thumbnail 
+
 
 ## ICE BOX
+- add @ICEBOX features
 - spice up frontend
   - add in tailwind V
   - make dashboard pretty V
   - allow to change URIs via API
   - next button in case of long lists
   - sidebar showcasing post length / anchor points
-
-- TODO:
-- setup docker V
-- fix frontend tests V
-- showcase disclaimer saying couldnt use original url
-- showcase loading in frontend or hero
-- refactor frontend components
-- remove vercel  from github repo 
-- add preview thumbnail 
-
-- frontend lazy load on enormous state
-- toasts for new data
