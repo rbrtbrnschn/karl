@@ -22,11 +22,6 @@ export const Card = ({ header, link, date }: ICardProps) => (
         </div>
       </div>
 
-      {/* <div className="mt-4 mb-6">
-        <div className="mb-3 text-xl font-bold">{subHeader}</div>
-        <div className="text-sm text-neutral-600">{description}</div>
-      </div> */}
-
       <div></div>
     </div>
   </div>
