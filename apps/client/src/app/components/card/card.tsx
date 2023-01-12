@@ -2,13 +2,10 @@ import { ICardProps } from './card.interface';
 
 export const Card = ({ header, link, date }: ICardProps) => (
   <div className="flex items-center justify-center my-4 ">
-    {' '}
     <div className="rounded-xl border p-5 shadow-md  bg-white w-full">
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="text-xl font-bold text-slate-700">
-            Post Title: {header}
-          </div>
+          <div className="text-lg font-bold text-slate-700">{header}</div>
         </div>
         <div className="flex items-center space-x-8">
           <button

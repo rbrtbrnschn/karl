@@ -51,8 +51,8 @@ export function App() {
 
       <div className={'container mx-auto'}>
         <Alert
-          title="Using different URL for testing."
-          description=" Default URL: https://animallogic.com"
+          title="Using different URL due to problems with the given URL."
+          description=" Using WP URL: https://animallogic.com"
           className="mt-2"
         />
         {state.map((entry) => {

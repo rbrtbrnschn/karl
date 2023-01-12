@@ -16,16 +16,7 @@
 - setup swagger V
 - finish readme V
 - fix last countmap test V
-
-## ICE BOX
-- spice up frontend
-  - add in tailwind V
-  - make dashboard pretty V
-  - allow to change URIs via API
-  - next button in case of long lists
-  - sidebar showcasing post length / anchor points
-
-- TODO:
+- fix @TODOS V
 - setup docker V
 - fix frontend tests V
 - showcase disclaimer saying couldnt use original url V
@@ -34,7 +25,14 @@
 - remove vercel  from github repo V
 - fix app ws typing V
 - toasts for new data V
-
-
 - add preview thumbnail 
-- frontend lazy load on enormous state
+
+
+## ICE BOX
+- add @ICEBOX features
+- spice up frontend
+  - add in tailwind V
+  - make dashboard pretty V
+  - allow to change URIs via API
+  - next button in case of long lists
+  - sidebar showcasing post length / anchor points
