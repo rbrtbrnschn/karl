@@ -88,7 +88,7 @@ WS_PORT=8001
 To serve both applications go into the `./dist/apps` directory.
 
 To serve the client app, I use `serve`. Install serve via `npm i -g serve` and run `serve client` (CWD: `./dist/apps`).
-To serve the server, navigate into the `./server` directory (absolute path: dist/apps/server`) and run `node main.js`.
+To serve the server, navigate into the `./server` directory (absolute path: `dist/apps/server`) and run `node main.js`.
 
 ### Testing
 
