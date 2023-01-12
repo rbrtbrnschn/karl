@@ -29,7 +29,7 @@
 - setup docker V
 - fix frontend tests V
 - showcase disclaimer saying couldnt use original url V
-- showcase loading in frontend or hero
+- showcase loading in frontend or hero V
 - refactor frontend components
 - remove vercel  from github repo 
 - add preview thumbnail 

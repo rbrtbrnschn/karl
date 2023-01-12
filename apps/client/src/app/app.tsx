@@ -1,10 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './app.module.scss';
 import { io, Socket } from 'socket.io-client';
 import { IGatewayResponse, parseString } from '@karl/common';
 import { Card } from './components/card/card';
 import { Alert } from './components/alert/alert';
+import { ToastContainer, toast, Id } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface ServerToClientEvents {
   noArg: () => void;
@@ -28,6 +30,7 @@ interface SocketData {
 export function App() {
   const [state, setState] = useState<IGatewayResponse[]>([]);
   const [isConnected, setIsConnected] = useState(false);
+  const [myToast, setMyToast] = useState<Id | null>();
   useEffect(() => {
     const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(
       `http://localhost:${process.env.WS_PORT || 8001}`
@@ -44,10 +47,17 @@ export function App() {
     socket.on('init', (e) => {
       setState(e);
       console.log('Received Data:', e);
+      toast.dismiss();
     });
   }, []);
+  const useMountEffect = (fun: () => void) => useEffect(fun, []);
+  useMountEffect(function () {
+    toast.info('Loading data...');
+  });
+
   return (
     <>
+      <ToastContainer />
       <div className={'container mx-auto'}>
         <Alert
           title="Using different URL for testing."
