@@ -14,7 +14,7 @@ Frontend Client available under http://localhost:3000/
 
 Countmap in JSON available under http://localhost:3333/api/countmap. (Port may change according to your .env)
 
-Swagger API Docs available under http://localhost:3333/docs ( Placeholder ).
+Swagger API Docs available under http://localhost:3333/docs
 
 ### Disclaimer:
 
