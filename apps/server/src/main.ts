@@ -3,33 +3,33 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common'
-import { NestFactory } from '@nestjs/core'
+import { Logger } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
 
-import { AppModule } from './app/app.module'
+import { AppModule } from './app/app.module';
 
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
-  const globalPrefix = 'api'
-  app.setGlobalPrefix(globalPrefix)
-  const port = process.env.PORT || 3333
+  const app = await NestFactory.create(AppModule);
+  const globalPrefix = 'api';
+  app.setGlobalPrefix(globalPrefix);
+  const port = process.env.PORT || 3333;
 
   const config = new DocumentBuilder()
-    .setTitle('Karl')
-    .setDescription('Swagger description here')
+    .setTitle('The Karl Project')
+    .setDescription('API Docs')
     .setVersion('1.0')
     .addTag('karl')
-    .build()
+    .build();
 
-  const swaggerDocument = SwaggerModule.createDocument(app, config,{ignoreGlobalPrefix:true})
-  SwaggerModule.setup('docs', app, swaggerDocument)
+  const swaggerDocument = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('docs', app, swaggerDocument);
 
-  await app.listen(port)
+  await app.listen(port);
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
-  )
+  );
 }
 
-bootstrap()
+bootstrap();
